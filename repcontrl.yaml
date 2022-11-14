@@ -1,0 +1,18 @@
+kind: ReplicationController               
+apiVersion: v1
+metadata:
+  name: myreplica
+spec:
+  replicas: 2            
+  selector:        
+    myname: replicapod01                           
+  template:                
+    metadata:
+      name: testingpod01
+      labels:            
+        myname: replicapod01 
+    spec:
+     containers:
+       - name: cont02
+         image: ubuntu
+         command: ["/bin/bash", "-c", "Hello itechnets devops training"]
